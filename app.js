@@ -71,6 +71,18 @@ class Incrementer extends React.Component {
     }
 
 }
+class ManualIncrementer extends React.Component {
+    constructor (props){
+        super(props)
+        this.state = {n:0}
+    }
+    increment () {
+        this.setState((state,propos)=>({n:state.n+1}))
+    }
+    render(){
+        return <div>Valeur : {this.state.n} <button onClick={this.increment.bind(this)}>Incrémenter</button></div>
+    }
+}
 
 function Home(){
     return <div>
@@ -78,6 +90,7 @@ function Home(){
         <Welcome name="Jean" />
         <Clock></Clock>
         <Incrementer start={10}></Incrementer>
+        <ManualIncrementer></ManualIncrementer>
 
     </div>
 }
